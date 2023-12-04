@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Patients route
+  resources :patients
+
+  # get '/patients/names', to: 'patients#patient_names', as: 'patient_names'
+
 end

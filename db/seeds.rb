@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# Seed data for patients
+(1..30).each do |i|
+  Patient.create!(
+    name: "Patient #{i}",
+    age: rand(18..90),
+    email: "patient#{i}@example.com",
+    address: "Address #{i}"
+  )
+end
