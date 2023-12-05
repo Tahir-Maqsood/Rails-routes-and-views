@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
     # @patients = Patient.all
 
     # Using kaminari paginate
-    @patients = Patient.page(params[:page]).per(5)
+    @patients = Patient.page(params[:page]).per(10)
   end
 
   def show
