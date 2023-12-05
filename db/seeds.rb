@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Seed data for patients
-(1..30).each do |i|
+(1..300).each do |i|
   Patient.create!(
     name: "Patient #{i}",
     age: rand(18..90),

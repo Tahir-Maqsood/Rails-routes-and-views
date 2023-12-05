@@ -2,7 +2,10 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @patients = Patient.all
+    # @patients = Patient.all
+
+    # Using kaminari paginate
+    @patients = Patient.page(params[:page]).per(5)
   end
 
   def show
