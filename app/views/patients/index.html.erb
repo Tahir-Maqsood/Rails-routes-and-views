@@ -13,8 +13,23 @@
   </thead>
 
   <tbody>
-    <%= render partial: 'patients/patient', collection: @patients %>
+    <% if @patients.empty? %>
+      <tr>
+        <td colspan="4">No patients exist.</td>
+      </tr>
+    <% else %>
+      <%= render partial: 'patients/patient', collection: @patients %>
+    <% end %>
   </tbody>
+
+
+  <%# Other approach Using loop %>
+  <%# <tbody> %>
+    <%# <% @patients.each do |patient| %>
+      <%# <%= render partial: 'patient', locals: { patient: patient } %>
+    <%# <% end %>
+  <%# </tbody> %>
+
 </table>
 
 <br>
