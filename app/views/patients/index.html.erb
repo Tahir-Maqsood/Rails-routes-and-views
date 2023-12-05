@@ -1,46 +1,22 @@
+<!-- app/views/patients/_patient_table.html.erb -->
+<h1>Patients</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <%= render partial: 'patients/patient', collection: @patients %>
+  </tbody>
+</table>
 
-<!-- app/views/patients/index.html.erb -->
+<br>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Patients List</title>
-  <%= stylesheet_link_tag 'patients', media: 'all' %>
-  <!-- Add any other head content, such as meta tags, here -->
-</head>
-<body>
-  <h1>Patients</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @patients.each do |patient| %>
-        <tr>
-          <td><%= patient.name %></td>
-          <td><%= patient.age %></td>
-          <td><%= patient.email %></td>
-          <td><%= patient.address %></td>
-          <td><%= link_to 'Show', patient_path(patient), class: 'view-link' %></td>
-          <td><%= link_to 'Edit', edit_patient_path(patient), class: 'edit-link' %></td>
-          <td><%= link_to 'Destroy', patient_path(patient), method: :delete, class: 'destroy-link', data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Patient', new_patient_path %>
-</body>
-</html>
+<%= link_to 'New Patient', new_patient_path %>

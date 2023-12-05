@@ -1,0 +1,4 @@
+<!-- app/views/patients/_patient_links.html.erb -->
+<td><%= link_to 'Show', patient_path(patient), class: 'view-link' %></td>
+<td><%= link_to 'Edit', edit_patient_path(patient), class: 'edit-link' %></td>
+<td><%= link_to 'Destroy', patient_path(patient), method: :delete, class: 'destroy-link', data: { confirm: 'Are you sure?' } %></td>
