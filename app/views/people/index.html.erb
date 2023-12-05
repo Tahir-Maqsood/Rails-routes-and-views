@@ -1,0 +1,10 @@
+<h1>Names of all the patients</h1>
+<% @patients.each do |patient| %>
+  Name: <%= patient.name %><br>
+<% end %>
+
+<%# Steps to render HTML in console %>
+
+<%# @patients = Patient.all %>
+<%# rendered_html = ApplicationController.render(template: 'people/index', assigns: { patients: @patients }) %>
+<%# puts rendered_html %>
