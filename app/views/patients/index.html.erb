@@ -1,39 +1,34 @@
-<!-- app/views/patients/_patient_table.html.erb -->
-<h1>Patients</h1>
+<% cache('patients_index', expires_in: 1.minutes) do %>
+  <h1>Patients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% if @patients.empty? %>
+  <table>
+    <thead>
       <tr>
-        <td colspan="4">No patients exist.</td>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th colspan="3"></th>
       </tr>
-    <% else %>
-      <%= render partial: 'patients/patient', collection: @patients %>
-    <% end %>
-  </tbody>
+    </thead>
 
+    <tbody>
+      <% if @patients.empty? %>
+        <tr>
+          <td colspan="4">No patients exist.</td>
+        </tr>
+      <% else %>
+        <%= render partial: 'patients/patient', collection: @patients %>
+      <% end %>
+    </tbody>
+  </table>
 
-  <%# Other approach Using loop %>
-  <%# <tbody> %>
-    <%# <% @patients.each do |patient| %>
-      <%# <%= render partial: 'patient', locals: { patient: patient } %>
-    <%# <% end %>
-  <%# </tbody> %>
+  <br>
 
-</table>
+  <%= link_to 'New Patient', new_patient_path %>
 
-<br>
+  <%= paginate @patients %>
+<% end %>
 
-<%= link_to 'New Patient', new_patient_path %>
-
-<%= paginate @patients %>
+<%# Reading a cache %>
+<%# Rails.cache.read('patients_index') %>
